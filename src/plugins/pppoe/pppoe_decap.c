@@ -160,6 +160,7 @@ VLIB_NODE_FN (pppoe_input_node) (vlib_main_t * vm,
 		  : PPPOE_INPUT_NEXT_IP6_INPUT;
 
           sw_if_index0 = t0->sw_if_index;
+          vnet_buffer (b0)->sw_if_index[VLIB_RX] = sw_if_index0;
           len0 = vlib_buffer_length_in_chain (vm, b0);
 
           pkts_decapsulated ++;
@@ -230,6 +231,7 @@ VLIB_NODE_FN (pppoe_input_node) (vlib_main_t * vm,
 		  : PPPOE_INPUT_NEXT_IP6_INPUT;
 
           sw_if_index1 = t1->sw_if_index;
+          vnet_buffer (b1)->sw_if_index[VLIB_RX] = sw_if_index1;
           len1 = vlib_buffer_length_in_chain (vm, b1);
 
           pkts_decapsulated ++;
@@ -332,6 +334,7 @@ VLIB_NODE_FN (pppoe_input_node) (vlib_main_t * vm,
 		  : PPPOE_INPUT_NEXT_IP6_INPUT;
 
 	  sw_if_index0 = t0->sw_if_index;
+	  vnet_buffer (b0)->sw_if_index[VLIB_RX] = sw_if_index0;
 	  len0 = vlib_buffer_length_in_chain (vm, b0);
 
           pkts_decapsulated ++;
