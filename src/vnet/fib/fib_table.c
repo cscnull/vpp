@@ -613,7 +613,7 @@ fib_table_entry_path_add2 (u32 fib_index,
         int was_sourced;
 
         was_sourced = fib_entry_is_sourced(fib_entry_index, source);
-	fib_entry_path_add(fib_entry_index, source, flags, rpaths);;
+        fib_entry_path_add(fib_entry_index, source, flags, rpaths);
 
         if (was_sourced != fib_entry_is_sourced(fib_entry_index, source))
         {
